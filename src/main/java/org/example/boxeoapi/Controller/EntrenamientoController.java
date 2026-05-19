@@ -19,11 +19,6 @@ public class EntrenamientoController {
         return ResponseEntity.ok(entrenamientoService.getTodos());
     }
 
-    @PostMapping("/entrenamientos")
-    public ResponseEntity<Entrenamiento> crear(@RequestBody Entrenamiento entrenamiento) {
-        return ResponseEntity.ok(entrenamientoService.crear(entrenamiento));
-    }
-
     @DeleteMapping("/entrenamientos/{id}")
     public ResponseEntity<?> eliminar(@PathVariable int id) {
         entrenamientoService.eliminar(id);

@@ -12,22 +12,10 @@ public class EntrenamientoService {
     @Autowired
     private EntrenamientoRepository entrenamientoRepository;
 
-    @Autowired
-    private NotificacionService notificacionService;
-
     public List<Entrenamiento> getTodos() {
         return entrenamientoRepository.findAll();
     }
 
-    public Entrenamiento crear(Entrenamiento entrenamiento) {
-        Entrenamiento nuevo = entrenamientoRepository.save(entrenamiento);
-        notificacionService.enviarATopic(
-                "entrenamientos",
-                "Nuevo entrenamiento",
-                "Se ha añadido un entrenamiento de " + nuevo.getTipo() + " el " + nuevo.getFecha()
-        );
-        return nuevo;
-    }
 
     public void eliminar(int id) {
         entrenamientoRepository.deleteById(id);

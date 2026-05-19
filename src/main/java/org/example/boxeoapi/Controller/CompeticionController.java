@@ -19,10 +19,6 @@ public class CompeticionController {
         return ResponseEntity.ok(competicionService.getTodos());
     }
 
-    @PostMapping("/competiciones")
-    public ResponseEntity<Competicion> crear(@RequestBody Competicion competicion) {
-        return ResponseEntity.ok(competicionService.crear(competicion));
-    }
 
     @DeleteMapping("/competiciones/{id}")
     public ResponseEntity<?> eliminar(@PathVariable int id) {
